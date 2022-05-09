@@ -99,6 +99,7 @@ const handleClickGuardar = () => {
            value={inputState.titulo}
            style={{width: "100%"}}
            />
+           
            </label>
            <br/>
            <label className="mb-2" style={{width: "100%"}}>
