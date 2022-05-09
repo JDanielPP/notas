@@ -47,6 +47,10 @@ const handleClickGuardar = () => {
     localStorage.setItem("notas", JSON.stringify(nuevoArreglo));
     setNotas([...nuevoArreglo]);
   };
+  const handleClickLimpiarLista = () => {
+    setNotas([])
+    localStorage.setItem("notas", JSON.stringify([]));
+  };
 
    return (
     <div className="App container">
@@ -55,7 +59,7 @@ const handleClickGuardar = () => {
           <h3>Lista</h3>
           {notas.length === 0 ? (
             "Al momento no tienes notas guardadas. Puedes crear una en el formulario"
-           ) : (
+            ) : (
               <ol>
                 {notas.map((item, index) => {
                   return(
@@ -72,8 +76,15 @@ const handleClickGuardar = () => {
                   )
                 })}
               </ol>
-            )
-           }
+            )}
+           <button
+           type="button"
+           className="btn btn-primary"
+           onClick={handleClickLimpiarLista}
+           disabled ={notas.length === 0}
+         >
+           Limpiar lista
+         </button>
         </div>
         <div className="col">
          <h3>Notas</h3><br></br>
@@ -120,7 +131,13 @@ const handleClickGuardar = () => {
             type="button"
             className="btn btn-primary"
             onClick={handleClickBorrar}
+            disabled={
+              inputState.titulo===""||
+              inputState.fecha===""||
+              inputState.nota===""
+              }
           >
+
             Borrar
           </button>
           </span>
@@ -132,7 +149,12 @@ const handleClickGuardar = () => {
           <button 
             type="button"
             className="btn btn-primary"
-            onClick={handleClickGuardar}>
+            onClick={handleClickGuardar}
+            disabled={
+              inputState.titulo===""||
+              inputState.fecha===""||
+              inputState.nota===""
+            }>
             Guardar
           </button>
           </span>
@@ -142,6 +164,7 @@ const handleClickGuardar = () => {
         </div>
       </div>
     </div>
+    
   );
 }
 
