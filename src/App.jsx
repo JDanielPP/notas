@@ -83,6 +83,7 @@ const handleClickGuardar = () => {
            onClick={handleClickLimpiarLista}
            disabled ={notas.length === 0}
          >
+
            Limpiar lista
          </button>
         </div>
