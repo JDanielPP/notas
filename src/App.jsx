@@ -156,7 +156,7 @@ const handleClickGuardar = () => {
               inputState.nota===""
             }>
             Guardar
-          </button>
+          </button> 
           </span>
 
             </div>
